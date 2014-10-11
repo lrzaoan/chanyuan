@@ -1,0 +1,16 @@
+body{
+    font-family: Simhei ;
+    background: #fff;
+}
+.clearfix :after{
+    display: table;
+    line-height: 0;
+    content: "";
+    clear: both;
+}
+ul li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}

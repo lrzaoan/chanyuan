@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+    <title>瀍源玫瑰庄园官网</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="css/supersized.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/base.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/index.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="theme/supersized.shutter.css" type="text/css" media="screen" />
+</head>
+<body >
+<!--Demo styles (you can delete this block)-->
+<div id="viewport" >
+    <div id="menue">
+        <div class="menue_bg">
+            <img src="img/menu_line.png" style="position: absolute; left: 22px; top: 179px;">
+            <ul>
+                <li class="menue_act_page"><a href="demo.html"><strong>【</strong>首页<strong>】</strong></a></li></li>
+                <li class="aa"><a href="cyzj.html"><strong>【</strong>瀍源札记<strong>】</strong></a></li>
+                <li ><a href="hydt.html"><strong>【</strong>花园动态<strong>】</strong></a> </li>
+                <li ><a href="mjxs.html"><strong>【</strong>美景欣赏<strong>】</strong></a> </li>
+                <li ><a href="sxjy.html"><strong>【</strong>随心记忆<strong>】</strong> </a> </li>
+                <li ><a href="ykly.html"><strong>【</strong>游客留言<strong>】</strong></a> </li>
+                <li ><a href="yyzn.html"><strong>【</strong>游园指南<strong>】</strong></a> </li>
+                <li ><a href="connectus.html"><strong>【</strong>联系我们<strong>】</strong></a> </li>
+
+            </ul>
+        </div>
+    </div>
+    <div id="menue_right">
+        <img src="img/title/text/ziti.png" style="margin-left: 35px;margin-top: 35px">
+        <div id="date"></div>
+    </div>
+    <div id="thumb-tray" class="load-item menue_right_pics" style="bottom: 0 !important;">
+    </div>
+    <div id="page_content" class="content_container">
+        <div  id="rule_content" class="overlay_content_container">
+            <img style="position:absolute; left:-30px; top:-35px;" src="img/title/22.png">
+            <div class="con_hydt">
+                <form action="" id="theform" name="theform" method="post">
+                    <p><label for="name">姓名</label><input id="name" type="text" value="" name="name" /><span>*</span></p>
+                    <p><label for="tel">电话</label><input id="tel" type="text" value="" name="tel" /></p>
+                    <p><label for="email">邮箱</label><input id="email" type="text" value="" name="email" /><span>*</span></p>
+                    <p class="texttop"><label for="message">文本</label><textarea id="message" rows="7" cols="30"  name="message"></textarea><span>*</span></p>
+                    <p><input class="submit" type="submit" name="submit" value="提交" /></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div style="position:absolute;">
+            <span>All Rights Reserved © 2013 byRoseofChanYuan瀍源玫瑰</span>
+            <span>|</span>
+            <span>地址：河南省洛阳市孟津县横水镇会瀍村     联系电话：0379—64618866</span>
+            <span>|</span>
+            <span>洛阳瀍源玫瑰科技开发有限公司       豫ICP备13023183号 </span>
+        </div>
+        <div class="bottom_share_bg">
+            <span class="share">分享至</span>
+            <div class="bottom_share "></div>
+            <div class="bottom_share weixin_share"></div>
+            <div class="bottom_share qq_share"></div>
+            <div class="bottom_share douban_share"></div>
+            <div class="bottom_share kaixin_share"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+<script type="text/javascript" src="js/supersized.3.2.7.min.js"></script>
+<script type="text/javascript" src="theme/supersized.shutter.min.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript">
+        $(document).ready(function(){
+            // Place ID's of all required fields here.
+            required = ["name", "email", "message"];
+            // If using an ID other than #email or #error then replace it here
+            email = $("#email");
+            errornotice = $("#error");
+            // The text to show up within a field when it is incorrect
+            $("#theform").submit(function(){
+                //Validate required fields
+                for (i=0;i<required.length;i++) {
+                    console.log(i);
+                    var input = $('#'+required[i]);
+                    if ((input.val() == "") || (input.val() == emptyerror)) {
+                        input.addClass("needsfilled");
+                        errornotice.fadeIn(750);
+                    } else {
+                        input.removeClass("needsfilled");
+                    }
+                }
+                // Validate the e-mail.
+                if (!/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email.val())) {
+                }
+
+                //if any inputs on the page have the class 'needsfilled' the form will not submit
+                if ($(":input").hasClass("needsfilled")) {
+                    return false;
+                } else {
+                    errornotice.hide();
+                    return true;
+                }
+            });
+
+            // Clears any fields in the form when the user clicks on them
+            $(":input").focus(function(){
+                if ($(this).hasClass("needsfilled") ) {
+                    $(this).val("");
+                    $(this).removeClass("needsfilled");
+                }
+            });
+        });
+</script>
+</body>
+</html>
